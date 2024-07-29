@@ -9,6 +9,7 @@ class ImageViewModel extends GetxController {
   final RxList<ImageModel> images = <ImageModel>[].obs;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final FirebaseStorage _storage = FirebaseStorage.instance;
+  var isLoading = true.obs;
 
   @override
   void onInit() {
@@ -17,10 +18,19 @@ class ImageViewModel extends GetxController {
   }
 
   Future<void> fetchImages() async {
-    final snapshot = await _db.collection('images').get();
-    images.value = snapshot.docs
-        .map((doc) => ImageModel.fromMap(doc.data(), doc.id))
-        .toList();
+    try {
+      isLoading(true);
+      final snapshot = await _db.collection('images').get();
+
+      images.value = snapshot.docs
+          .map((doc) => ImageModel.fromMap(doc.data(), doc.id))
+          .toList();
+    } catch (e) {
+      //handle error
+      print('Error fetching data :$e');
+    } finally {
+      isLoading(false);
+    }
   }
 
   Future<void> addImage(File file, String label) async {

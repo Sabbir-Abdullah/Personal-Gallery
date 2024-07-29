@@ -9,9 +9,13 @@ class ImageDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(image.label)),
-      body: Center(
-        child: Image.network(image.url),
+      appBar: AppBar(title: Text(image.label,style: TextStyle(fontFamily: 'DancingScript'),),),
+      body: Stack(
+        children: [
+          Align(alignment: AlignmentDirectional.center,
+              child: Image.network(image.url)),
+
+        ]
       ),
     );
   }

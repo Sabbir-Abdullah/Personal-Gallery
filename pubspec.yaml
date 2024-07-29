@@ -42,6 +42,7 @@ dependencies:
   cloud_firestore: ^5.1.0
   http: ^1.2.2
   shimmer: ^3.0.0
+  typing_text: ^1.0.4
 
 
 dev_dependencies:
