@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -14,12 +13,12 @@ class CustomButton {
         onPressed: () {
           onPressed();
         },
+        style:
+            const ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
         child: Text(
           text,
-          style: TextStyle(color: textWhite, fontSize: 20),
+          style: const TextStyle(color: textWhite, fontSize: 20),
         ),
-        style:
-            ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
       ),
     );
   }

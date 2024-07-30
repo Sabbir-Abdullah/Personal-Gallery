@@ -4,7 +4,7 @@ import '../models/image_model.dart';
 class ImageDetailScreen extends StatelessWidget {
   final ImageModel image;
 
-  ImageDetailScreen({required this.image});
+  const ImageDetailScreen({required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,10 @@ class ImageDetailScreen extends StatelessWidget {
       body: Stack(
         children: [
           Align(alignment: AlignmentDirectional.center,
-              child: Image.network(image.url)),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: Image.network(image.url),
+              )),
 
         ]
       ),

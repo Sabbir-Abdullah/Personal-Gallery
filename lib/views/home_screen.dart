@@ -14,10 +14,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Align(
+          const Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 50.0),
+                padding: EdgeInsets.only(top: 50.0),
                 child: WelcomeHome(),
               )),
           Align(
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                       CustomButton.Button(() async {
                         Get.to(() => GalleryScreen());
                       }, 'View Gallery'),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       CustomButton.Button(() async {

@@ -41,8 +41,7 @@ dependencies:
   firebase_storage: ^12.1.1
   cloud_firestore: ^5.1.0
   http: ^1.2.2
-  shimmer: ^3.0.0
-  typing_text: ^1.0.4
+  animated_text_kit: ^4.2.2
 
 
 dev_dependencies:

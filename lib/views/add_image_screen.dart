@@ -47,34 +47,34 @@ class _AddImageScreenState extends State<AddImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add New Image',style: TextStyle(fontFamily: 'DancingScript'),)),
+      appBar: AppBar(title: const Text('Add New Image',style: TextStyle(fontFamily: 'DancingScript'),)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             if (_imageFile != null)
-              Container(
+              SizedBox(
                 height: 200,
                 child: Image.file(_imageFile!),
               ),
             TextField(
               controller: labelController,
-              decoration: InputDecoration(labelText: 'Label',),
+              decoration: const InputDecoration(labelText: 'Label',),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: _pickImage,
-              child: Text('Pick Image',style: TextStyle(color: textWhite,fontSize: 20),),
-              style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
+              child: const Text('Pick Image',style: TextStyle(color: textWhite,fontSize: 20),),
+              style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: _uploadImage,
-              child: Text('Upload Image',style: TextStyle(color: textWhite,fontSize: 20),),
-              style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
+              child: const Text('Upload Image',style: TextStyle(color: textWhite,fontSize: 20),),
+              style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
             ),
             if(_isUploading)
-              Padding(padding: EdgeInsets.all(15),
+              const Padding(padding: EdgeInsets.all(15),
               child: CircularProgressIndicator(),)
           ],
         ),

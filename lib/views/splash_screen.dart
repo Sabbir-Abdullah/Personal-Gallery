@@ -1,9 +1,11 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:personal_gallery/views/home_screen.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:personal_gallery/util/constants.dart';
 import 'dart:async';
-
-import 'package:typing_text/typing_text.dart';
+import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -16,26 +18,30 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // Navigate to home page after delay
     Timer(const Duration(seconds: 3), () {
-      Get.off(()=>HomeScreen());
+      Get.off(() => HomeScreen());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Center(
-            child: TypingText(
-              words: ['PERSONAL GALLERY'],
-              letterSpeed: Duration(milliseconds: 100),
-              style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'DancingScript'),
-            ),
+    return Scaffold(
+      body: Center(
+        child: DefaultTextStyle(
+          style: const TextStyle(
+            color: textBlack,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'DancingScript',
+            fontSize: 30.0,
+          ),
+          child: AnimatedTextKit(
+            animatedTexts: [
+              WavyAnimatedText(
+                'PERSONAL GALLERY',
+                speed: Duration(milliseconds: 160),
+              ),
+            ],
+            isRepeatingAnimation: false,
+            onTap: () {},
           ),
         ),
       ),
