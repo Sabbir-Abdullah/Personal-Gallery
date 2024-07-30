@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // Navigate to home page after delay
     Timer(const Duration(seconds: 3), () {
-      Get.to(() => const HomeScreen());
+      Get.off(()=>HomeScreen());
     });
   }
 
